@@ -1,0 +1,142 @@
+QWidget[class=dialog_title]{
+    background-color: #2B2B2B;
+}
+QWidget[class=dialog_content]{
+    background-color: #FFFFFF;
+}
+
+QWidget[class=white]{
+    color: #333333;
+    border: 0px;
+}
+
+/* QScrollBar Vertical */
+QScrollBar:vertical {
+     border: none;
+     background: transparent;
+     width: 8px;
+     margin: 2px 0 2px 0;
+}
+QScrollBar::handle:vertical {
+     background: #4f4f4f;
+     min-height: 2px;
+     border-radius:4px
+}
+QScrollBar::add-line:vertical,  QScrollBar::sub-line:vertical  {
+     border: none;
+     height: 0px;
+     subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical  {
+    subcontrol-position: bottom;
+}
+QScrollBar::sub-line:vertical  {
+    subcontrol-position: top;
+}
+
+/* QScrollBar Horizontal */
+QScrollBar:horizontal {
+     border: none;
+     background: transparent;
+     height: 8px;
+     margin: 0 2px 0 2px;
+}
+QScrollBar::handle:horizontal {
+     background: #4f4f4f;
+     min-width: 2px;
+     border-radius:4px
+}
+QScrollBar::add-line:horizontal,  QScrollBar::sub-line:horizontal  {
+     border: none;
+     width: 0px;
+     subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal  {
+    subcontrol-position: left;
+}
+QScrollBar::sub-line:horizontal  {
+    subcontrol-position: right;
+}
+
+QLabel[class=header]{
+   color: #828282;
+}
+QLabel[class=parameter]{
+    padding: 8px 8px 8px 8px;
+    color: #828282;
+}
+QLabel[class=bparameter]{
+    padding: 4px 4px 4px 4px;
+    color: #828282;
+    font-weight: bold;
+}
+QLabel[class=white]{
+    padding: 8px 8px 8px 8px;
+    color: #F2F2F2;
+}
+QLabel[class=bwhite]{
+    padding: 4px 4px 4px 4px;
+    color: #F2F2F2;
+    font-weight: bold;
+}
+QLabel[class=title]{
+    padding: 8px 8px 8px 8px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+QLabel[class=number]{
+   color: #333333;
+   font-weight: bold;
+}
+QLabel[class=error]{
+    color: #F24F4F;
+}
+QLabel[class=tb_lbl]{
+    color: #4F4F4F;
+}
+
+QCheckBox{
+    margin-top:2px;
+    margin-bottom:2px;
+    spacing: 12px;
+}
+QCheckBox[class=white]{
+    color: #f2f2f2;
+}
+QCheckBox::indicator:unchecked {
+    image: url(:/icons/chb_off.svg);
+}
+QCheckBox::indicator:checked {
+    image: url(:/icons/chb_on.svg);
+}
+QCheckBox[class=black]{
+    color: #333333;
+}
+
+
+QAbstractSpinBox{
+    padding: 8px 8px 8px 8px;
+    border: 0px;
+    selection-color: #f2f2f2;
+    selection-background-color: rgba(255,166,0,153);
+}
+QAbstractSpinBox[class=white]{
+    color: #f2f2f2;
+}
+QAbstractSpinBox[class=black]{
+    color: #333333;
+}
+
+
+QLineEdit{
+    border: none;
+    padding: 8px 8px 8px 8px;
+}
+QLineEdit[class=white]{
+    color: #f2f2f2;
+}
+QLineEdit[class=black]{
+    border:none;
+    color: #333333;
+}
+

@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/mouse.svg</file>
+        <file>icons/move.svg</file>
+        <file>icons/rotate.svg</file>
+        <file>icons/black_union.svg</file>
+        <file>icons/one_window.svg</file>
+        <file>icons/split_window.svg</file>
+        <file>icons/math.svg</file>
+        <file>icons/pause.svg</file>
+        <file>icons/save.svg</file>
+        <file>icons/white_union.svg</file>
+        <file>icons/zoom_wind.svg</file>
+        <file>icons/zoom_out.svg</file>
+        <file>icons/zoom_in.svg</file>
+        <file>icons/zoom.svg</file>
+        <file>icons/slices.svg</file>
+        <file>icons/cube.svg</file>
+        <file>icons/save2.svg</file>
+        <file>icons/save3.svg</file>
+        <file>icons/input_image.svg</file>
+        <file>icons/play.svg</file>
+        <file>icons/ok_mark.svg</file>
+        <file>icons/close.svg</file>
+        <file>styles/tools.css</file>
+        <file>icons/group.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/chb_off.svg</file>
+        <file>icons/chb_on.svg</file>
+        <file>icons/vertical_line.svg</file>
+        <file>icons/minus.svg</file>
+        <file>icons/plus.svg</file>
+        <file>icons/up_arrow.svg</file>
+        <file>icons/down_arrow.svg</file>
+        <file>icons/popup_settings.svg</file>
+        <file>icons/bell.svg</file>
+        <file>icons/doc.svg</file>
+        <file>icons/figure.svg</file>
+        <file>icons/point.svg</file>
+        <file>icons/math-book.svg</file>
+    </qresource>
+</RCC>

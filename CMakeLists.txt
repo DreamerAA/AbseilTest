@@ -12,6 +12,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "")
 endif()
 
 set(ABSL_PROPAGATE_CXX_STD ON)
+
 add_subdirectory(abseil)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -23,7 +24,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 find_package(
-    QT NAMES Qt6 Qt5
+    QT NAMES Qt6
     COMPONENTS Widgets Charts Svg Network
     REQUIRED)
 find_package(
@@ -39,16 +40,17 @@ target_link_libraries(_iqt INTERFACE
     Qt${QT_VERSION_MAJOR}::Network
 )
 
+add_subdirectory(libs)
+add_subdirectory(gui)
+
 add_executable(
     _abseil_pet
-    include/NetworkLayer/NetworkLayer.h
-    src/NetworkLayer/NetworkLayer.cpp
-    src/main.cpp
+    main.cpp
 )
 
-target_include_directories(_abseil_pet PRIVATE include/NetworkLayer)
-
-target_link_libraries(_abseil_pet PUBLIC
+target_link_libraries(
+    _abseil_pet PUBLIC
     absl::strings
-    _iqt
+    _gui
+    _model
 )
