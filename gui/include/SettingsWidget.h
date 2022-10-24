@@ -1,8 +1,5 @@
-#ifndef SETTINGSWIDGET_H
-#define SETTINGSWIDGET_H
-#include <IModel.h>
-#include <NetworkLayerStorage.h>
-#include <UpdateCoinsLayer.h>
+#pragma once
+#include <GuiModel.h>
 
 #include <QListView>
 #include <QStandardItemModel>
@@ -13,14 +10,11 @@
 class SettingsWidget : public QWidget {
     Q_OBJECT
   public:
-    explicit SettingsWidget(IModel *imodel, QWidget *parent);
+    explicit SettingsWidget(GuiModel *gui_model, QWidget *parent);
 
   private:
-    IModel *imodel_;
+    GuiModel *gui_model_;
     QListView *list_view_;
     QStandardItemModel *list_model_;
     QHash<QUuid, QStandardItem *> items_;
-    QVector<QSharedPointer<INetworkLayer>> layers_;
 };
-
-#endif  // SETTINGSWIDGET_H

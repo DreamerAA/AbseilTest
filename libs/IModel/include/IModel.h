@@ -1,18 +1,18 @@
 #pragma once
 
+#include <absl/container/flat_hash_map.h>
+
 #include <QHash>
 #include <QIcon>
 #include <QObject>
 #include <QUuid>
 #include <QVariantMap>
-//#include <absl/conteiner/flat_hash_map.h>
 
 /// @todo rewrite Qt structs to abseil containers
 struct Currency {
     QUuid id_;
     QString name_;
     QString key_;
-    QIcon icon_;
     QVariantMap meta_info_;
     double price_{0.};
 };
@@ -24,10 +24,6 @@ class IModel : public QObject {
 
     [[nodiscard]] QString nameCurrency(QUuid id) const {
         return currencies_[id]->name_;
-    }
-
-    [[nodiscard]] QIcon iconCurrency(QUuid id) const {
-        return currencies_[id]->icon_;
     }
 
     [[nodiscard]] QStringList currencyNames() const {
@@ -51,7 +47,9 @@ class IModel : public QObject {
         function(currencies_[id]);
         emit currencyChanged(id);
     }
+    void needUpdate() { Q_EMIT needUpdateSignal(); }
   signals:
+    void needUpdateSignal();
     void currencyChanged(QUuid);
     void newCurrency(QUuid);
 

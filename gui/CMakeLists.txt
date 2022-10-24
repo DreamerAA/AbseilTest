@@ -9,6 +9,7 @@ add_library(
     src/ChartView.cpp
     src/MainWindow.cpp
     resources/tools.qrc
+
 )
 
 target_include_directories(_gui PUBLIC include/)

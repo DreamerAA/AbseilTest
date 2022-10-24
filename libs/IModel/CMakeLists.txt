@@ -12,4 +12,5 @@ target_link_libraries(
     _imodel PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Gui # must be removed from here QIcon!!!
+    absl::btree
 )

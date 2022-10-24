@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 
-MainWindow::MainWindow(IModel *imodel) : QMainWindow(), imodel_(imodel) {
+MainWindow::MainWindow(GuiModel *imodel) : QMainWindow(), imodel_(imodel) {
     auto *settings = new SettingsWidget(imodel_, this);  // NOLINT
     auto *dock = new QDockWidget("Настройки", this);     // NOLINT
     dock->setWidget(settings);

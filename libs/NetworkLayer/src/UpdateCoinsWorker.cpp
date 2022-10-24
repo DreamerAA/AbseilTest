@@ -1,8 +1,9 @@
-#include "UpdateCoinsLayer.h"
+#include "UpdateCoinsWorker.h"
 
-UpdateCoinsLayer::UpdateCoinsLayer(IModel *imodel) : INetworkLayer(imodel) {}
+UpdateCoinsWorker::UpdateCoinsWorker(IModel *imodel)
+    : INetworkWorker(), imodel_(imodel) {}
 
-QNetworkRequest UpdateCoinsLayer::createRequest() {
+QNetworkRequest UpdateCoinsWorker::createRequest() {
     auto url = QUrl(
         "https://coinranking1.p.rapidapi.com/"
         "coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D="
@@ -15,7 +16,7 @@ QNetworkRequest UpdateCoinsLayer::createRequest() {
     return request;
 }
 
-void UpdateCoinsLayer::acceptResponse(QNetworkReply *reply) {
+void UpdateCoinsWorker::acceptResponse(QNetworkReply *reply) {
     auto doc = QJsonDocument::fromJson(reply->readAll());
     auto jobj = doc.object();
     auto jdata = jobj["data"].toObject();
@@ -23,19 +24,11 @@ void UpdateCoinsLayer::acceptResponse(QNetworkReply *reply) {
     for (const auto &jel : jarray) {
         auto jcoin = jel.toObject();
         auto cur_id = QUuid::createUuid();
-        model()->addCurrency(
+        imodel_->addCurrency(
             Currency{.id_ = cur_id,
                      .name_ = jcoin["name"].toString(),
                      .key_ = jcoin["uuid"].toString(),
                      .meta_info_ = jcoin.toVariantMap(),
                      .price_ = jcoin["price"].toString().toDouble()});
-        const auto &currency = model()->currency(cur_id);
-        //        qDebug() << currency->meta_info_["iconUrl"].toString();
-        auto icon_loader = new IconLoadLayer(
-            IconLoadLayer::IconDTO{
-                cur_id, currency->meta_info_["iconUrl"].toString(), QIcon()},
-            model());
-        icon_loader->sendRequest();
-        NetworkLayerStorage::instance().addLayer(icon_loader);
     }
 }
